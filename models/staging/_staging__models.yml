@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: stg_students
+    description: >
+      Inscriptions aux parcours Data, nettoyées. Le genre manquant est conservé
+      en 'Non renseigné'. Grain : une ligne = un démarrage de parcours
+      (un étudiant peut apparaître sur plusieurs années de début).
+    columns:
+      - name: user_id
+        description: "Identifiant pseudonymisé de l'étudiant."
+        data_tests:
+          - not_null
+      - name: age_group
+        description: "Tranche d'âge."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['20-24 ans','25-29 ans','30-34 ans','35-39 ans','40-44 ans','45-49 ans','50-54 ans','55-59 ans','60 ans ou plus']
+      - name: gender
+        description: "Genre : M, F, ou 'Non renseigné' (valeur manquante conservée)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['M','F','Non renseigné']
+      - name: region
+        description: "Région de résidence."
+        data_tests:
+          - not_null
+      - name: year_path_started
+        description: "Année de début du parcours."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [2022, 2023, 2024, 2025]
+    # La vraie clé n'est pas user_id seul (un étudiant peut démarrer sur plusieurs
+    # années) mais la combinaison user_id + année de début.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - user_id
+              - year_path_started
+
+  - name: stg_population_insee
+    description: "Population française INSEE 2023 par région, âge et genre."
+    columns:
+      - name: region
+        data_tests: [not_null]
+      - name: age_group
+        data_tests: [not_null]
+      - name: gender
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['M','F']
+      - name: population
+        data_tests: [not_null]

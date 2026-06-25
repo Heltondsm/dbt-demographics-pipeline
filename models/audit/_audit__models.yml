@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: audit_data_quality
+    description: >
+      Contrôle de complétude source -> final. Aucune ligne n'est supprimée :
+      les valeurs manquantes (genre) sont conservées en 'Non renseigné'.
+      `lignes_supprimees` = 0 le prouve.
+    columns:
+      - name: lignes_source
+        data_tests: [not_null]
+      - name: lignes_supprimees
+        description: "Doit rester à 0 : aucune perte de données."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [0]

@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: mart_students
+    description: "Nombre d'inscriptions par année, âge, genre et région (genre 'Non renseigné' inclus)."
+    columns:
+      - name: year_path_started
+        data_tests: [not_null]
+      - name: age_group
+        data_tests: [not_null]
+      - name: gender
+        data_tests: [not_null]
+      - name: region
+        data_tests: [not_null]
+      - name: nb_students
+        description: "Nombre d'inscriptions dans le segment."
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1
+
+  - name: mart_students_vs_population
+    description: "Comparaison étudiants (M/F) vs population INSEE, taux pour 10 000 habitants."
+    columns:
+      - name: nb_students
+        data_tests: [not_null]
+      - name: population
+        description: "Population INSEE du segment. Non nul attendu : tout segment M/F a une référence INSEE."
+        data_tests: [not_null]
+      - name: taux_pour_10000_hab
+        data_tests: [not_null]

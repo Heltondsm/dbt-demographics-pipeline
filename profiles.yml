@@ -1,0 +1,9 @@
+# Profil local : DuckDB (aucune config cloud nécessaire pour reproduire le projet).
+# En production, le même code tourne sur Snowflake : il suffit de remplacer cet adapter.
+demographics_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'demographics.duckdb'
+      threads: 4
