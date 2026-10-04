@@ -1,4 +1,4 @@
-# ⚙️ Pipeline dbt : profils sociodémographiques
+# ⚙️ Pipeline dbt : profil des apprenants et représentativité territoriale
 
 ![dbt](https://img.shields.io/badge/dbt--core-1.11-FF694B?style=flat-square&logo=dbt&logoColor=white)
 ![Snowflake](https://img.shields.io/badge/Snowflake-prod-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
