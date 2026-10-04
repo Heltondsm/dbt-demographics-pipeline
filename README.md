@@ -52,7 +52,7 @@ flowchart LR
 ## 🔍 Résultats clés
 
 ### 1️⃣ Volume
-**4 647 inscriptions** sur 2022-2025, avec un creux en 2023 puis une reprise en 2025.
+**4 647 inscriptions** sur 2022-2025 : une baisse jusqu'en 2024, puis une reprise en 2025.
 
 ### 2️⃣ Genre
 **À peine 1 femme sur 3**, et c'est stable sur les 4 ans.
@@ -61,7 +61,7 @@ flowchart LR
 Public en reconversion : **6 inscrits sur 10 ont entre 25 et 39 ans**.
 
 ### 4️⃣ Région
-Forte concentration : à population égale, l'**Île-de-France est environ 3× au-dessus de la moyenne** des autres régions.
+Forte concentration : à population égale, l'**Île-de-France compte 2,3 fois plus d'étudiants** que le reste de la France.
 
 ---
 
