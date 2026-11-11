@@ -105,8 +105,57 @@ tests/       assert_no_segment_exceeds_population
 
 ---
 
-## 🛠️ Stack
+## 🛠️ Technologies utilisées
 
-dbt-core · DuckDB (local) · Snowflake (production) · dbt_utils · SQL
+- **dbt-core** : modèles SQL en couches, tests, documentation des modèles
+- **Snowflake** : entrepôt de données cloud (production)
+- **DuckDB** : exécution locale, sans infrastructure
+- **dbt_utils** : tests d'unicité sur clé composite
+- **SQL**
 
 > Données pseudonymisées. Source de référence : INSEE, population 2023.
+
+---
+
+## 📈 Compétences démontrées
+
+### Modélisation des données
+- ✅ Architecture en couches staging, marts et audit, un rôle par modèle
+- ✅ Grain défini et vérifié : la clé unique est l'identifiant + l'année, pas l'identifiant seul
+- ✅ Tables et colonnes décrites dans les fichiers dbt (13 descriptions)
+
+### Qualité des données
+- ✅ 26 tests automatisés : `not_null`, `accepted_values`, plages, unicité, et un test métier
+- ✅ Valeurs manquantes conservées et mesurées (27 % du genre), aucune ligne supprimée
+- ✅ Modèle d'audit qui contrôle la complétude de la source au résultat
+
+### Reproductibilité
+- ✅ Conçu sur Snowflake, rejoué en local avec DuckDB en une commande : mêmes modèles, mêmes tests
+- ✅ Identifiants pseudonymisés, tables finales agrégées (RGPD)
+
+---
+
+## 📧 Contact
+
+**Helton Dos Santos Moreira**
+Data Analyst | 10 ans d'expérience business (retail et e-commerce)
+
+- 📧 Email : heltonmail8@gmail.com
+- 💼 LinkedIn : [in/helton-dsm-data](https://linkedin.com/in/helton-dsm-data)
+- 🐙 GitHub : [Heltondsm](https://github.com/Heltondsm)
+- 🌐 Portfolio : [heltondsm.github.io](https://heltondsm.github.io/)
+
+---
+
+## 🔗 Autres projets
+
+- [CRM data et agents IA : centraliser opportunités, contacts et échanges](https://github.com/Heltondsm/crm-data-agents-ia), PostgreSQL alimenté par des API, collecte Python planifiée, opportunités notées par IA, testé automatiquement à chaque push
+- [Étude de marché par clustering : choisir les pays où exporter de la volaille bio](https://github.com/Heltondsm/python-etude-marche-clustering-pays), ACP, CAH et k-means sur 170 pays, 4 familles, 3 marchés prioritaires
+- [Tableau de bord Power BI : portefeuille de projets](https://github.com/Heltondsm/powerbi-portefeuille-projets-rls), 104 projets dans 52 pays, sécurité au niveau des lignes sur 3 rôles, 25 mesures DAX
+- [Audit de la qualité des données d'un catalogue e-commerce](https://github.com/Heltondsm/python-audit-donnees-catalogue), 3 sources réconciliées, 9 anomalies, 276 859 € de stock valorisé
+- [Tendances du streaming musical : tests statistiques et Prophet](https://github.com/Heltondsm/analyse-streaming-musical), 114 000 morceaux, 3 tests avec leur taille d'effet, prévision à 6 mois
+
+---
+
+**Projet réalisé en juin 2026**
+
